@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Udacity Homework Datastore</title>
-		<meta charset="utf-8">
-	</head>
-	<body>
-		<h1>Udacity Homework Datastore</h1>
-		<form method="post">
-			<label>
-				<div>Title</div>
-				<input type="text" name="title" value="{{ title }}">
-			</label>
-			<label>
-				<div>Body</div>
-				<textarea name="body" value="{{ body }}"></textarea>
-			</label>
-			<br>
-			<p>{{ error }}</p>
-			<br>
-			<input type="submit">
-		</form>
-	</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+	<form method="post">
+		<label>
+			<div>Title</div>
+			<input type="text" name="title" value="{{ title }}">
+		</label>
+		<label>
+			<div>Body</div>
+			<textarea name="body" value="{{ body }}"></textarea>
+		</label>
+		<br>
+		<p>{{ error }}</p>
+		<br>
+		<input type="submit">
+	</form>
+{% endblock %}

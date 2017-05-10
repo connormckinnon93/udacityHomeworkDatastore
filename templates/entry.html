@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Udacity Homework Datastore</title>
-		<meta charset="utf-8">
-	</head>
-	<body>
-		<h1>Udacity Homework Datastore</h1>
-		<div class="post">
-			<div class="post-title">{{ title }}</div>
-			<pre class="post-body">{{ body }}</pre>
-		</div>
-	</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="post">
+	<div class="post-title">{{ title }}</div>
+	<pre class="post-body">{{ body }}</pre>
+</div>
+{% endblock %}
