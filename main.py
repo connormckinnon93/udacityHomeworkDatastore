@@ -15,17 +15,12 @@
 import os
 import jinja2
 import webapp2
-import cgi
 
 from google.appengine.ext import db
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(template_dir), autoescape=True)
-
-
-def html_escape(input):
-    return cgi.escape(input, quote=True)
 
 
 class Handler(webapp2.RequestHandler):
