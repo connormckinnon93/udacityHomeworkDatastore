@@ -67,13 +67,20 @@ class FormPage(Handler):
         if title and body:
             a = Post(title=title, body=body)
             a.put()
+            post_id = a.key().id()
 
-            self.redirect("/")
+            self.redirect("/blog/" + str(post_id))
         else:
             error = "We need more information from you!"
             self.render_front(title, body, error)
 
+class PostPage(Handler):
+    def get(self, post_id):
+        item = Post.get_by_id(int(post_id))
+        self.render('entry.html', title=item.title , body=item.body)
+
 app = webapp2.WSGIApplication([
-    ('/', MainPage),
-    ('/newpost', FormPage)
+    (r'/', MainPage),
+    (r'/newpost', FormPage),
+    (r'/blog/(\d+)', PostPage)
 ], debug=True)
